@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Payment extends Model
+{
+    protected $fillable = ['order_id', 'montant', 'methode', 'statut', 'transaction_id', 'date_paiement'];
+    
+    protected $casts = [
+        'montant' => 'decimal:2',
+        'date_paiement' => 'datetime',
+    ];
+    
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
+}

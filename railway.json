@@ -1,5 +1,5 @@
 {
   "builder": "nixpacks",
-  "buildCommand": "npm install --omit=dev && npm run build",
-  "startCommand": "npm start"
+  "buildCommand": "bash build.sh",
+  "startCommand": "php -S 0.0.0.0:${PORT:-8000} -t public"
 }

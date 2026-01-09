@@ -75,18 +75,18 @@ const ContactPage = () => {
   return (
     <PublicLayout>
       {/* Hero Section */}
-      <section className="relative min-h-[350px] bg-gradient-to-br from-slate-900 via-slate-800 to-black text-white flex items-center overflow-hidden pt-20">
+      <section className="relative min-h-[350px] md:min-h-[400px] bg-gradient-to-br from-slate-900 via-slate-800 to-black text-white flex items-center overflow-hidden pt-16 md:pt-20">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-red-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute -top-40 -right-40 w-60 md:w-80 h-60 md:h-80 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+          <div className="absolute -bottom-40 -left-40 w-60 md:w-80 h-60 md:h-80 bg-red-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '2s'}}></div>
         </div>
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           <div className="text-center max-w-2xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-black mb-6">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-4 md:mb-6">
               Contactez-Nous
             </h1>
-            <p className="text-xl text-gray-300">
+            <p className="text-base md:text-lg lg:text-xl text-gray-300">
               Nous sommes toujours heureux de vous aider. Envoyez-nous un message et nous vous répondrons rapidement.
             </p>
           </div>
@@ -94,32 +94,32 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-12 md:py-16 lg:py-24 bg-white">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {contactInfo.map((info, idx) => (
               <div
                 key={idx}
-                className="group relative"
+                className="group relative cursor-pointer"
               >
                 {/* Background blur */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${info.color} rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 blur-xl`}></div>
 
                 {/* Card */}
-                <div className="relative bg-white rounded-2xl p-8 border-2 border-gray-100 hover:border-transparent transition-all duration-300 group-hover:shadow-2xl text-center">
-                  <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${info.color} flex items-center justify-center mb-4 mx-auto transform group-hover:scale-110 transition-transform`}>
-                    <i className={`fas ${info.icon} text-white text-2xl`}></i>
+                <div className="relative bg-white rounded-2xl p-6 md:p-8 border-2 border-gray-100 hover:border-transparent transition-all duration-300 group-hover:shadow-2xl text-center group-hover:-translate-y-2">
+                  <div className={`w-14 md:w-16 h-14 md:h-16 rounded-full bg-gradient-to-br ${info.color} flex items-center justify-center mb-3 md:mb-4 mx-auto transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-lg`}>
+                    <i className={`fas ${info.icon} text-white text-xl md:text-2xl`}></i>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-base md:text-lg lg:text-xl font-bold text-gray-900 mb-2 group-hover:text-white transition-colors">
                     {info.title}
                   </h3>
                   
-                  <p className="text-2xl font-black text-gray-900 mb-2 group-hover:text-white transition-colors">
+                  <p className="text-lg md:text-xl lg:text-2xl font-black text-gray-900 mb-2 group-hover:text-white transition-colors">
                     {info.content}
                   </p>
                   
-                  <p className="text-sm text-gray-600 group-hover:text-gray-100 transition-colors">
+                  <p className="text-xs md:text-sm text-gray-600 group-hover:text-gray-100 transition-colors">
                     {info.subtext}
                   </p>
                 </div>
@@ -130,23 +130,23 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Form & Map */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-12 md:py-20 lg:py-32 bg-gradient-to-b from-gray-50 to-white">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
             {/* Contact Form */}
-            <div className="bg-white rounded-2xl p-8 md:p-10 border-2 border-gray-200 shadow-lg">
-              <h2 className="text-3xl font-black text-gray-900 mb-2 flex items-center gap-3">
+            <div className="bg-white rounded-2xl p-6 md:p-8 lg:p-10 border-2 border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 mb-2 flex items-center gap-3">
                 <i className="fas fa-paper-plane text-red-600"></i>
                 Envoyez-Nous un Message
               </h2>
-              <p className="text-gray-600 mb-8">
+              <p className="text-gray-600 mb-6 md:mb-8 text-sm md:text-base">
                 Remplissez le formulaire ci-dessous et nous vous répondrons dans les meilleurs délais.
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                 {/* Name */}
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">
+                  <label className="block text-xs md:text-sm font-bold text-gray-900 mb-2">
                     <i className="fas fa-user mr-2 text-red-600"></i>
                     Votre Nom
                   </label>
@@ -156,14 +156,14 @@ const ContactPage = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all text-sm md:text-base"
                     placeholder="John Doe"
                   />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">
+                  <label className="block text-xs md:text-sm font-bold text-gray-900 mb-2">
                     <i className="fas fa-envelope mr-2 text-red-600"></i>
                     Email
                   </label>
@@ -173,14 +173,14 @@ const ContactPage = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all text-sm md:text-base"
                     placeholder="votre@email.com"
                   />
                 </div>
 
                 {/* Phone */}
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">
+                  <label className="block text-xs md:text-sm font-bold text-gray-900 mb-2">
                     <i className="fas fa-phone mr-2 text-red-600"></i>
                     Téléphone
                   </label>
@@ -189,14 +189,14 @@ const ContactPage = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all text-sm md:text-base"
                     placeholder="+229 XXXXXXXX"
                   />
                 </div>
 
                 {/* Subject */}
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">
+                  <label className="block text-xs md:text-sm font-bold text-gray-900 mb-2">
                     <i className="fas fa-tag mr-2 text-red-600"></i>
                     Sujet
                   </label>
@@ -205,7 +205,7 @@ const ContactPage = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all text-sm md:text-base"
                   >
                     <option value="">-- Choisissez un sujet --</option>
                     {subjects.map((subj, idx) => (
@@ -218,7 +218,7 @@ const ContactPage = () => {
 
                 {/* Message */}
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">
+                  <label className="block text-xs md:text-sm font-bold text-gray-900 mb-2">
                     <i className="fas fa-comment mr-2 text-red-600"></i>
                     Message
                   </label>
@@ -227,8 +227,8 @@ const ContactPage = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={5}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors resize-none"
+                    rows={4}
+                    className="w-full px-3 md:px-4 py-2 md:py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all resize-none text-sm md:text-base"
                     placeholder="Votre message..."
                   />
                 </div>
@@ -237,16 +237,19 @@ const ContactPage = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full px-6 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="group w-full px-4 md:px-6 py-3 md:py-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 overflow-hidden relative text-sm md:text-base"
                 >
-                  <i className="fas fa-send"></i>
-                  {loading ? 'Envoi en cours...' : 'Envoyer le Message'}
+                  <span className="absolute inset-0 bg-gradient-to-r from-red-700 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></span>
+                  <span className="relative flex items-center gap-2">
+                    <i className="fas fa-send group-hover:rotate-12 transition-transform"></i>
+                    {loading ? 'Envoi en cours...' : 'Envoyer le Message'}
+                  </span>
                 </button>
               </form>
             </div>
 
             {/* Info Section */}
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-8">
               {/* Quick Response */}
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border-2 border-blue-200">
                 <h3 className="text-2xl font-bold text-blue-900 mb-4 flex items-center gap-3">

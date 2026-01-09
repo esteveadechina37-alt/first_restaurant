@@ -98,20 +98,26 @@ const HomePage = () => {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                 <Link
                   to="/register"
-                  className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-bold text-lg overflow-hidden shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 hover:scale-105"
+                  className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-bold text-base sm:text-lg overflow-hidden shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 hover:scale-105 active:scale-95"
                 >
-                  <i className="fas fa-arrow-right mr-3 group-hover:translate-x-1 transition-transform"></i>
-                  Commencer Maintenant
+                  <span className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></span>
+                  <span className="relative flex items-center gap-2">
+                    <i className="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    Commencer Maintenant
+                  </span>
                 </Link>
                 <Link
                   to="/services"
-                  className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-xl font-bold text-lg hover:bg-white hover:text-orange-600 transition-all duration-300 hover:scale-105"
+                  className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-white text-white rounded-xl font-bold text-base sm:text-lg hover:bg-white hover:text-orange-600 transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden"
                 >
-                  <i className="fas fa-play mr-3"></i>
-                  Voir les Plats
+                  <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></span>
+                  <span className="relative flex items-center gap-2">
+                    <i className="fas fa-play"></i>
+                    Voir les Plats
+                  </span>
                 </Link>
               </div>
 
@@ -130,23 +136,27 @@ const HomePage = () => {
             </div>
 
             {/* Right - Visual Element */}
-            <div className="hidden md:flex justify-center items-center relative">
-              <div className="relative w-full max-w-md">
-                {/* Animated dish image */}
+            <div className="flex justify-center items-center relative">
+              <div className="relative w-full max-w-sm md:max-w-md">
+                {/* Animated dish image with better responsive */}
                 <div className="relative z-10 animate-bounce">
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl transform rotate-6 blur-lg opacity-50"></div>
-                  <div className="relative bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl p-12 shadow-2xl">
+                  <div className="relative bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl p-8 md:p-12 shadow-2xl">
                     <div className="text-center">
-                      <div className="text-9xl mb-4">🍲</div>
-                      <h3 className="text-white font-bold text-2xl">Mets Béninois</h3>
-                      <p className="text-orange-100 mt-2">Saveurs Authentiques</p>
+                      <img 
+                        src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=400&fit=crop" 
+                        alt="Plat béninois savoureux" 
+                        className="w-full h-48 md:h-56 object-cover rounded-2xl mb-4 shadow-lg"
+                      />
+                      <h3 className="text-white font-bold text-xl md:text-2xl">Mets Béninois</h3>
+                      <p className="text-orange-100 mt-2 text-sm md:text-base">Saveurs Authentiques</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Decorative circles */}
-                <div className="absolute -top-10 -right-10 w-40 h-40 bg-orange-300 rounded-full opacity-20 blur-2xl animate-pulse"></div>
-                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-amber-300 rounded-full opacity-20 blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+                <div className="absolute -top-10 -right-10 w-32 md:w-40 h-32 md:h-40 bg-orange-300 rounded-full opacity-20 blur-2xl animate-pulse"></div>
+                <div className="absolute -bottom-10 -left-10 w-32 md:w-40 h-32 md:h-40 bg-amber-300 rounded-full opacity-20 blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
               </div>
             </div>
           </div>
@@ -170,7 +180,7 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {features.map((feature, idx) => (
               <div
                 key={idx}
@@ -182,22 +192,22 @@ const HomePage = () => {
                 <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 blur-xl`}></div>
 
                 {/* Main Card */}
-                <div className="relative bg-white rounded-2xl p-8 border-2 border-gray-100 hover:border-transparent transition-all duration-300 group-hover:shadow-2xl h-full flex flex-col">
+                <div className="relative bg-white rounded-2xl p-6 md:p-8 border-2 border-gray-100 hover:border-transparent transition-all duration-300 group-hover:shadow-2xl h-full flex flex-col cursor-pointer">
                   {/* Icon */}
-                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300 group-hover:rotate-12`}>
-                    <i className={`fas ${feature.icon} text-white text-2xl`}></i>
+                  <div className={`w-14 md:w-16 h-14 md:h-16 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4 md:mb-6 transform group-hover:scale-110 transition-transform duration-300 group-hover:rotate-12 shadow-lg`}>
+                    <i className={`fas ${feature.icon} text-white text-xl md:text-2xl`}></i>
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-white transition-colors">
+                  <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 group-hover:text-white transition-colors">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 group-hover:text-gray-100 transition-colors flex-grow mb-4">
+                  <p className="text-sm md:text-base text-gray-600 group-hover:text-gray-100 transition-colors flex-grow mb-4">
                     {feature.description}
                   </p>
 
                   {/* Arrow */}
-                  <div className="flex items-center gap-2 text-orange-600 font-semibold group-hover:text-white transition-colors">
+                  <div className="flex items-center gap-2 text-orange-600 font-semibold group-hover:text-white transition-colors text-sm md:text-base">
                     <span>En Savoir Plus</span>
                     <i className="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
                   </div>
@@ -209,14 +219,14 @@ const HomePage = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-orange-600 to-orange-500 text-white">
+      <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-r from-orange-600 to-orange-500 text-white">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {stats.map((stat, idx) => (
-              <div key={idx} className="text-center space-y-3">
-                <i className={`fas ${stat.icon} text-4xl md:text-5xl opacity-80`}></i>
-                <div className="text-4xl md:text-5xl font-black">{stat.value}</div>
-                <p className="text-orange-100 font-semibold">{stat.label}</p>
+              <div key={idx} className="text-center space-y-2 md:space-y-3 group cursor-pointer p-2 md:p-4 rounded-lg transition-all duration-300 hover:bg-white/10">
+                <i className={`fas ${stat.icon} text-3xl md:text-4xl lg:text-5xl opacity-80 group-hover:opacity-100 transition-opacity`}></i>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-black group-hover:scale-110 transition-transform">{stat.value}</div>
+                <p className="text-xs md:text-sm lg:text-base text-orange-100 font-semibold">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -237,11 +247,11 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {testimonials.map((testimonial, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-orange-500 group hover:-translate-y-2"
+                className="bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-orange-500 group hover:-translate-y-2 cursor-pointer"
               >
                 {/* Stars */}
                 <div className="flex gap-1 mb-4">
@@ -251,21 +261,21 @@ const HomePage = () => {
                 </div>
 
                 {/* Comment */}
-                <p className="text-gray-700 mb-6 italic leading-relaxed text-lg">
+                <p className="text-sm md:text-base text-gray-700 mb-4 md:mb-6 italic leading-relaxed">
                   "{testimonial.comment}"
                 </p>
 
                 {/* Author */}
-                <div className="flex items-center gap-4 pt-6 border-t border-gray-200">
-                  <div className="text-4xl">{testimonial.avatar}</div>
+                <div className="flex items-center gap-3 md:gap-4 pt-4 md:pt-6 border-t border-gray-200">
+                  <div className="text-3xl md:text-4xl">{testimonial.avatar}</div>
                   <div>
-                    <p className="font-bold text-gray-900">{testimonial.name}</p>
-                    <p className="text-gray-600 text-sm">{testimonial.role}</p>
+                    <p className="font-bold text-gray-900 text-sm md:text-base">{testimonial.name}</p>
+                    <p className="text-gray-600 text-xs md:text-sm">{testimonial.role}</p>
                   </div>
                 </div>
 
                 {/* Verified Badge */}
-                <div className="mt-4 flex items-center gap-2 text-green-600 text-sm font-semibold">
+                <div className="mt-3 md:mt-4 flex items-center gap-2 text-green-600 text-xs md:text-sm font-semibold">
                   <i className="fas fa-check-circle"></i>
                   Avis Vérifié
                 </div>
@@ -282,33 +292,36 @@ const HomePage = () => {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
 
         <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 md:mb-6">
             Prêt à Découvrir Nos Saveurs?
           </h2>
-          <p className="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-300 text-base md:text-lg lg:text-xl mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed">
             Rejoignez des centaines de clients satisfaits et recevez une réduction de 10% sur votre première commande!
           </p>
 
-          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-8">
+          <form className="flex flex-col sm:flex-row gap-2 md:gap-3 max-w-md mx-auto mb-6 md:mb-8">
             <input
               type="email"
               placeholder="Votre adresse email..."
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 px-6 py-4 rounded-xl text-gray-900 font-medium placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 text-base"
+              className="flex-1 px-4 md:px-6 py-3 md:py-4 rounded-xl text-gray-900 font-medium placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm md:text-base transition-all duration-300 hover:shadow-lg"
             />
             <button
               type="submit"
-              className="px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-orange-500/50 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+              className="group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-orange-500/50 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center gap-2 text-sm md:text-base overflow-hidden relative"
             >
-              <i className="fas fa-paper-plane"></i>
-              <span>S'Inscrire</span>
+              <span className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              <span className="relative flex items-center gap-2">
+                <i className="fas fa-paper-plane group-hover:rotate-12 transition-transform"></i>
+                <span>S'Inscrire</span>
+              </span>
             </button>
           </form>
 
           <Link
             to="/register"
-            className="inline-flex items-center justify-center text-orange-400 hover:text-orange-300 transition-colors font-bold text-lg gap-2 group"
+            className="inline-flex items-center justify-center text-orange-400 hover:text-orange-300 transition-colors font-bold text-base md:text-lg gap-2 group"
           >
             <span>Créer un compte complet</span>
             <i className="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>

@@ -1,30 +1,35 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import PublicLayout from '../layouts/PublicLayout';
+import PublicLayout from '../../layouts/PublicLayout';
 
 const HomePage = () => {
   const [email, setEmail] = useState('');
+  const [hoveredCard, setHoveredCard] = useState(null);
 
   const features = [
     {
-      icon: '🍲',
+      icon: 'fa-utensils',
       title: 'Cuisine Authentique',
-      description: 'Recettes traditionnelles béninoise préparées avec les meilleurs ingrédients'
+      description: 'Recettes traditionnelles béninoise préparées avec passion',
+      color: 'from-orange-400 to-orange-600'
     },
     {
-      icon: '⚡',
+      icon: 'fa-bolt',
       title: 'Service Rapide',
-      description: 'Commandes prêtes en moins de 30 minutes, livrées chauds directement chez vous'
+      description: 'Commandes prêtes en moins de 30 minutes',
+      color: 'from-yellow-400 to-yellow-600'
     },
     {
-      icon: '🌟',
+      icon: 'fa-star',
       title: 'Qualité Garantie',
-      description: 'Ingrédients frais, hygiène irréprochable, satisfaction client assurée'
+      description: 'Ingrédients frais et hygiène irréprochable',
+      color: 'from-red-400 to-red-600'
     },
     {
-      icon: '📱',
+      icon: 'fa-mobile',
       title: 'Facile à Commander',
-      description: 'Plateforme intuitive pour commander en ligne en quelques clics'
+      description: 'Plateforme intuitive et rapide',
+      color: 'from-blue-400 to-blue-600'
     }
   ];
 
@@ -32,82 +37,116 @@ const HomePage = () => {
     {
       name: 'Amara Soumah',
       role: 'Client régulier',
-      comment: 'Les saveurs authentiques qui me ramènent à la maison! Excellent service.',
+      comment: 'Les saveurs authentiques qui me ramènent à la maison!',
+      avatar: '👨‍🍳',
       rating: 5
     },
     {
       name: 'Michel Dossou',
       role: 'Homme d\'affaires',
-      comment: 'Parfait pour les repas d\'affaires. Qualité et professionnalisme au rendez-vous.',
+      comment: 'Parfait pour les repas d\'affaires. Qualité garantie!',
+      avatar: '👔',
       rating: 5
     },
     {
       name: 'Ève Koudou',
       role: 'Étudiante',
-      comment: 'Délicieux, abordable et livré vite. Je recommande vivement!',
+      comment: 'Délicieux, abordable et livré super vite!',
+      avatar: '👩‍🎓',
       rating: 5
     }
   ];
 
+  const stats = [
+    { icon: 'fa-users', value: '500+', label: 'Clients Heureux' },
+    { icon: 'fa-utensils', value: '50+', label: 'Plats Savoureux' },
+    { icon: 'fa-star', value: '4.9★', label: 'Note Moyenne' },
+    { icon: 'fa-clock', value: '30min', label: 'Livraison Moyenne' }
+  ];
+
   return (
     <PublicLayout>
-      {/* Hero Section */}
-      <section className="relative h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute w-96 h-96 bg-orange-600 rounded-full -top-20 -left-20"></div>
-          <div className="absolute w-96 h-96 bg-amber-500 rounded-full bottom-10 right-10"></div>
+      {/* Hero Section Ultra-Moderne */}
+      <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-black text-white overflow-hidden flex items-center pt-10 md:pt-0">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-orange-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-amber-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse" style={{animationDelay: '4s'}}></div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 h-full flex items-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full">
-            {/* Left - Text */}
-            <div className="z-10">
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                Découvrez les
-                <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent"> Saveurs Bénin</span>
-              </h1>
-              <p className="text-xl text-gray-300 mb-8">
-                Plongez dans une expérience culinaire authentique avec nos recettes traditionnelles béninoise, préparées avec passion et expertise.
-              </p>
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Left - Text Content */}
+            <div className="space-y-8">
+              <div>
+                <div className="inline-flex items-center gap-3 mb-6 px-4 py-2 bg-orange-500/20 border border-orange-500/50 rounded-full">
+                  <i className="fas fa-crown text-orange-400"></i>
+                  <span className="text-orange-300 font-semibold text-sm">Meilleur Restaurant Béninois</span>
+                </div>
+
+                <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
+                  Découvrez les
+                  <span className="block bg-gradient-to-r from-orange-400 via-orange-300 to-amber-300 bg-clip-text text-transparent mt-3">
+                    Saveurs Authentiques
+                  </span>
+                </h1>
+
+                <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-lg">
+                  Immergez-vous dans une expérience culinaire exceptionnelle. Plats traditionnels béninois préparés avec passion par nos chefs experts.
+                </p>
+              </div>
+
+              {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/register"
-                  className="px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg font-semibold hover:shadow-lg transition transform hover:scale-105"
+                  className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-bold text-lg overflow-hidden shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 hover:scale-105"
                 >
+                  <i className="fas fa-arrow-right mr-3 group-hover:translate-x-1 transition-transform"></i>
                   Commencer Maintenant
                 </Link>
                 <Link
                   to="/services"
-                  className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition"
+                  className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-xl font-bold text-lg hover:bg-white hover:text-orange-600 transition-all duration-300 hover:scale-105"
                 >
-                  Découvrir Plus
+                  <i className="fas fa-play mr-3"></i>
+                  Voir les Plats
                 </Link>
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 mt-12">
-                <div>
-                  <div className="text-3xl font-bold text-orange-400">500+</div>
-                  <div className="text-sm text-gray-400">Clients Satisfaits</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-orange-400">50+</div>
-                  <div className="text-sm text-gray-400">Plats Disponibles</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-orange-400">4.9⭐</div>
-                  <div className="text-sm text-gray-400">Note Moyenne</div>
-                </div>
+              <div className="grid grid-cols-2 gap-4 pt-8 border-t border-gray-700">
+                {stats.slice(0, 2).map((stat, idx) => (
+                  <div key={idx} className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <i className={`fas ${stat.icon} text-orange-400 text-xl`}></i>
+                      <span className="text-3xl font-bold">{stat.value}</span>
+                    </div>
+                    <p className="text-gray-400 text-sm">{stat.label}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Right - Image/Illustration */}
-            <div className="z-10 flex justify-center">
-              <div className="relative w-96 h-96">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl transform rotate-6"></div>
-                <div className="absolute inset-0 bg-white rounded-2xl flex items-center justify-center text-9xl shadow-2xl">
-                  🍽️
+            {/* Right - Visual Element */}
+            <div className="hidden md:flex justify-center items-center relative">
+              <div className="relative w-full max-w-md">
+                {/* Animated dish image */}
+                <div className="relative z-10 animate-bounce">
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl transform rotate-6 blur-lg opacity-50"></div>
+                  <div className="relative bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl p-12 shadow-2xl">
+                    <div className="text-center">
+                      <div className="text-9xl mb-4">🍲</div>
+                      <h3 className="text-white font-bold text-2xl">Mets Béninois</h3>
+                      <p className="text-orange-100 mt-2">Saveurs Authentiques</p>
+                    </div>
+                  </div>
                 </div>
+
+                {/* Decorative circles */}
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-orange-300 rounded-full opacity-20 blur-2xl animate-pulse"></div>
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-amber-300 rounded-full opacity-20 blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
               </div>
             </div>
           </div>
@@ -115,22 +154,69 @@ const HomePage = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="py-20 md:py-32 bg-white">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Pourquoi Nous Choisir?</h2>
-            <p className="text-xl text-gray-600">Nous nous engageons à vous offrir la meilleure expérience culinaire</p>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+              Pourquoi Nous Choisir?
+            </h2>
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="w-12 h-1 bg-orange-500 rounded-full"></div>
+              <p className="text-orange-600 font-bold">Nos Avantages</p>
+              <div className="w-12 h-1 bg-orange-500 rounded-full"></div>
+            </div>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Découvrez ce qui rend notre restaurant unique et spécial
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
+            {features.map((feature, idx) => (
               <div
-                key={index}
-                className="p-8 bg-gray-50 rounded-xl hover:shadow-lg transition transform hover:-translate-y-2"
+                key={idx}
+                onMouseEnter={() => setHoveredCard(idx)}
+                onMouseLeave={() => setHoveredCard(null)}
+                className="group relative h-full"
               >
-                <div className="text-5xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                {/* Background Card */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 blur-xl`}></div>
+
+                {/* Main Card */}
+                <div className="relative bg-white rounded-2xl p-8 border-2 border-gray-100 hover:border-transparent transition-all duration-300 group-hover:shadow-2xl h-full flex flex-col">
+                  {/* Icon */}
+                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300 group-hover:rotate-12`}>
+                    <i className={`fas ${feature.icon} text-white text-2xl`}></i>
+                  </div>
+
+                  {/* Content */}
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-white transition-colors">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 group-hover:text-gray-100 transition-colors flex-grow mb-4">
+                    {feature.description}
+                  </p>
+
+                  {/* Arrow */}
+                  <div className="flex items-center gap-2 text-orange-600 font-semibold group-hover:text-white transition-colors">
+                    <span>En Savoir Plus</span>
+                    <i className="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-r from-orange-600 to-orange-500 text-white">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, idx) => (
+              <div key={idx} className="text-center space-y-3">
+                <i className={`fas ${stat.icon} text-4xl md:text-5xl opacity-80`}></i>
+                <div className="text-4xl md:text-5xl font-black">{stat.value}</div>
+                <p className="text-orange-100 font-semibold">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -138,28 +224,50 @@ const HomePage = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="py-20 md:py-32 bg-gray-50">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Ce Que Disent Nos Clients</h2>
-            <p className="text-xl text-gray-600">Rejoignez notre communauté de clients satisfaits</p>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+              Ce Que Disent Nos Clients
+            </h2>
+            <div className="flex items-center justify-center gap-3">
+              <div className="w-12 h-1 bg-orange-500 rounded-full"></div>
+              <p className="text-orange-600 font-bold">Avis Vérifiés</p>
+              <div className="w-12 h-1 bg-orange-500 rounded-full"></div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
+            {testimonials.map((testimonial, idx) => (
               <div
-                key={index}
-                className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition"
+                key={idx}
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-orange-500 group hover:-translate-y-2"
               >
-                <div className="flex mb-4">
+                {/* Stars */}
+                <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-yellow-400">⭐</span>
+                    <i key={i} className="fas fa-star text-yellow-400"></i>
                   ))}
                 </div>
-                <p className="text-gray-700 mb-6 italic">"{testimonial.comment}"</p>
-                <div>
-                  <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                  <p className="text-sm text-gray-600">{testimonial.role}</p>
+
+                {/* Comment */}
+                <p className="text-gray-700 mb-6 italic leading-relaxed text-lg">
+                  "{testimonial.comment}"
+                </p>
+
+                {/* Author */}
+                <div className="flex items-center gap-4 pt-6 border-t border-gray-200">
+                  <div className="text-4xl">{testimonial.avatar}</div>
+                  <div>
+                    <p className="font-bold text-gray-900">{testimonial.name}</p>
+                    <p className="text-gray-600 text-sm">{testimonial.role}</p>
+                  </div>
+                </div>
+
+                {/* Verified Badge */}
+                <div className="mt-4 flex items-center gap-2 text-green-600 text-sm font-semibold">
+                  <i className="fas fa-check-circle"></i>
+                  Avis Vérifié
                 </div>
               </div>
             ))}
@@ -167,33 +275,43 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-amber-500 text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">Prêt à Tester Nos Saveurs?</h2>
-          <p className="text-xl mb-8 opacity-90">
-            Inscrivez-vous maintenant et recevez une réduction de 10% sur votre première commande
+      {/* CTA Section Final */}
+      <section className="py-20 md:py-32 bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-black mb-6">
+            Prêt à Découvrir Nos Saveurs?
+          </h2>
+          <p className="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+            Rejoignez des centaines de clients satisfaits et recevez une réduction de 10% sur votre première commande!
           </p>
-          <form className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+
+          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-8">
             <input
               type="email"
-              placeholder="Votre adresse email"
+              placeholder="Votre adresse email..."
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="px-6 py-3 rounded-lg text-gray-900 flex-grow sm:flex-grow-0 w-full sm:w-64"
+              className="flex-1 px-6 py-4 rounded-xl text-gray-900 font-medium placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 text-base"
             />
             <button
               type="submit"
-              className="px-8 py-3 bg-white text-orange-600 font-semibold rounded-lg hover:shadow-lg transition"
+              className="px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-orange-500/50 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
             >
-              S'Inscrire
+              <i className="fas fa-paper-plane"></i>
+              <span>S'Inscrire</span>
             </button>
           </form>
+
           <Link
             to="/register"
-            className="inline-block text-white underline hover:opacity-90 transition"
+            className="inline-flex items-center justify-center text-orange-400 hover:text-orange-300 transition-colors font-bold text-lg gap-2 group"
           >
-            Créer un compte complet →
+            <span>Créer un compte complet</span>
+            <i className="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
           </Link>
         </div>
       </section>

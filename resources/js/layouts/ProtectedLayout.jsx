@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import Navbar from '../components/Navbar';
 
 const ProtectedLayout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(true);

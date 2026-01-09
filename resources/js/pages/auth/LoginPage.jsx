@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import PublicLayout from '../layouts/PublicLayout';
+import PublicLayout from '../../layouts/PublicLayout';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });

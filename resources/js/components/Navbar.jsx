@@ -60,10 +60,10 @@ const Navbar = () => {
               <Link
                 key={idx}
                 to={link.to}
-                className="group px-3 lg:px-4 py-2 text-gray-700 hover:text-orange-600 transition font-medium flex items-center gap-2 rounded-lg hover:bg-orange-50"
+                className="group px-2 sm:px-3 lg:px-4 py-2 text-gray-700 hover:text-orange-600 transition font-medium flex items-center gap-2 rounded-lg hover:bg-orange-50 text-sm md:text-base"
               >
                 <i className={`fas ${link.icon} group-hover:scale-110 transition-transform`}></i>
-                <span>{link.label}</span>
+                <span className="hidden lg:inline">{link.label}</span>
               </Link>
             ))}
           </div>
@@ -72,40 +72,40 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-2 lg:space-x-4 flex-shrink-0">
             {user ? (
               <div className="flex items-center space-x-2 lg:space-x-4">
-                <div className="flex items-center gap-2 px-4 py-2 bg-orange-50 rounded-lg">
+                <div className="flex items-center gap-2 px-3 md:px-4 py-2 bg-orange-50 rounded-lg hidden sm:flex">
                   <i className="fas fa-user-circle text-orange-600"></i>
-                  <span className="text-gray-700 font-medium text-sm lg:text-base truncate">{user.name}</span>
+                  <span className="text-gray-700 font-medium text-xs sm:text-sm lg:text-base truncate">{user.name}</span>
                 </div>
                 <Link
                   to="/dashboard"
-                  className="px-4 py-2 bg-gradient-to-r from-orange-600 to-orange-500 text-white rounded-lg hover:shadow-lg hover:shadow-orange-500/50 transition font-medium flex items-center gap-2 hover:scale-105"
+                  className="px-3 md:px-4 py-2 bg-gradient-to-r from-orange-600 to-orange-500 text-white rounded-lg hover:shadow-lg hover:shadow-orange-500/50 transition font-medium flex items-center gap-2 hover:scale-105 text-xs sm:text-sm lg:text-base"
                 >
                   <i className="fas fa-chart-line"></i>
-                  Dashboard
+                  <span className="hidden lg:inline">Dashboard</span>
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="px-4 py-2 text-orange-600 border-2 border-orange-600 rounded-lg hover:bg-orange-600 hover:text-white transition font-medium flex items-center gap-2"
+                  className="px-3 md:px-4 py-2 text-orange-600 border-2 border-orange-600 rounded-lg hover:bg-orange-600 hover:text-white transition font-medium flex items-center gap-2 text-xs sm:text-sm lg:text-base"
                 >
                   <i className="fas fa-sign-out-alt"></i>
-                  Sortir
+                  <span className="hidden lg:inline">Sortir</span>
                 </button>
               </div>
             ) : (
               <div className="flex gap-2 lg:gap-4">
                 <Link
                   to="/login"
-                  className="px-4 py-2 text-orange-600 font-medium hover:text-orange-700 transition flex items-center gap-2"
+                  className="px-3 md:px-4 py-2 text-orange-600 font-medium hover:text-orange-700 transition flex items-center gap-2 text-xs sm:text-sm lg:text-base"
                 >
                   <i className="fas fa-sign-in-alt"></i>
-                  <span>Connexion</span>
+                  <span className="hidden lg:inline">Connexion</span>
                 </Link>
                 <Link
                   to="/register"
-                  className="px-4 py-2 bg-gradient-to-r from-orange-600 to-orange-500 text-white rounded-lg hover:shadow-lg hover:shadow-orange-500/50 transition font-medium flex items-center gap-2 hover:scale-105"
+                  className="px-3 md:px-4 py-2 bg-gradient-to-r from-orange-600 to-orange-500 text-white rounded-lg hover:shadow-lg hover:shadow-orange-500/50 transition font-medium flex items-center gap-2 hover:scale-105 text-xs sm:text-sm lg:text-base"
                 >
                   <i className="fas fa-user-plus"></i>
-                  <span>Inscription</span>
+                  <span className="hidden lg:inline">Inscription</span>
                 </Link>
               </div>
             )}
@@ -122,7 +122,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-2 border-t border-gray-200">
+          <div className="md:hidden pb-4 space-y-2 bg-white border-t border-gray-200">
             {[
               { to: '/', label: 'Accueil', icon: 'fa-home' },
               { to: '/services', label: 'Services', icon: 'fa-concierge-bell' },

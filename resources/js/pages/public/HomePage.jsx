@@ -136,7 +136,7 @@ const HomePage = () => {
             </div>
 
             {/* Right - Visual Element */}
-            <div className="flex justify-center items-center relative">
+            <div className="hidden md:flex justify-center items-center relative">
               <div className="relative w-full max-w-sm md:max-w-md">
                 {/* Animated dish image with better responsive */}
                 <div className="relative z-10 animate-bounce">
@@ -164,50 +164,50 @@ const HomePage = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 md:py-32 bg-white">
+      <section className="py-12 md:py-20 lg:py-32 bg-white">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl lg:text-5xl font-black text-gray-900 mb-3 md:mb-4 lg:mb-4">
               Pourquoi Nous Choisir?
             </h2>
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <div className="w-12 h-1 bg-orange-500 rounded-full"></div>
-              <p className="text-orange-600 font-bold">Nos Avantages</p>
-              <div className="w-12 h-1 bg-orange-500 rounded-full"></div>
+            <div className="flex items-center justify-center gap-3 mb-4 md:mb-6">
+              <div className="w-8 md:w-12 h-1 bg-orange-500 rounded-full"></div>
+              <p className="text-orange-600 font-bold text-xs md:text-sm lg:text-base">Nos Avantages</p>
+              <div className="w-8 md:w-12 h-1 bg-orange-500 rounded-full"></div>
             </div>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 text-sm md:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
               Découvrez ce qui rend notre restaurant unique et spécial
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
             {features.map((feature, idx) => (
               <div
                 key={idx}
                 onMouseEnter={() => setHoveredCard(idx)}
                 onMouseLeave={() => setHoveredCard(null)}
-                className="group relative h-full"
+                className="group relative h-full overflow-hidden rounded-2xl"
               >
-                {/* Background Card */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 blur-xl`}></div>
+                {/* Background overlay - visible on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
 
                 {/* Main Card */}
-                <div className="relative bg-white rounded-2xl p-6 md:p-8 border-2 border-gray-100 hover:border-transparent transition-all duration-300 group-hover:shadow-2xl h-full flex flex-col cursor-pointer">
+                <div className="relative bg-white group-hover:bg-transparent rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 border-2 border-gray-100 group-hover:border-transparent transition-all duration-300 group-hover:shadow-2xl h-full flex flex-col cursor-pointer">
                   {/* Icon */}
-                  <div className={`w-14 md:w-16 h-14 md:h-16 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4 md:mb-6 transform group-hover:scale-110 transition-transform duration-300 group-hover:rotate-12 shadow-lg`}>
-                    <i className={`fas ${feature.icon} text-white text-xl md:text-2xl`}></i>
+                  <div className={`w-12 sm:w-14 md:w-16 h-12 sm:h-14 md:h-16 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-3 sm:mb-4 md:mb-6 transform group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300 group-hover:rotate-12 shadow-lg`}>
+                    <i className={`fas ${feature.icon} text-white text-lg sm:text-xl md:text-2xl`}></i>
                   </div>
 
-                  {/* Content */}
-                  <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 group-hover:text-white transition-colors">
+                  {/* Content - Now fully white on hover */}
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-2 sm:mb-3 md:mb-4 group-hover:text-white transition-colors duration-300 leading-tight">
                     {feature.title}
                   </h3>
-                  <p className="text-sm md:text-base text-gray-600 group-hover:text-gray-100 transition-colors flex-grow mb-4">
+                  <p className="text-xs sm:text-sm md:text-base text-gray-600 group-hover:text-white transition-colors duration-300 flex-grow mb-3 sm:mb-4 md:mb-4 leading-relaxed">
                     {feature.description}
                   </p>
 
-                  {/* Arrow */}
-                  <div className="flex items-center gap-2 text-orange-600 font-semibold group-hover:text-white transition-colors text-sm md:text-base">
+                  {/* Arrow - Now visible and animated on hover */}
+                  <div className="flex items-center gap-2 text-orange-600 group-hover:text-white transition-all duration-300 text-xs sm:text-sm md:text-base font-semibold opacity-0 group-hover:opacity-100 transform group-hover:translate-y-0 translate-y-2 transition-all duration-300">
                     <span>En Savoir Plus</span>
                     <i className="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
                   </div>

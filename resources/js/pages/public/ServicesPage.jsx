@@ -119,47 +119,45 @@ const ServicesPage = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {services.map((service, idx) => (
               <div
                 key={idx}
-                onMouseEnter={() => setHoveredService(idx)}
-                onMouseLeave={() => setHoveredService(null)}
-                className="group relative h-full"
+                className="group relative h-full overflow-hidden rounded-2xl"
                 style={{ animation: `fadeInUp 0.6s ease-out ${service.delay}` }}
               >
-                {/* Background blur */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 blur-xl`}></div>
+                {/* Gradient Overlay */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
 
                 {/* Card */}
-                <div className="relative bg-white rounded-2xl p-6 md:p-8 border-2 border-gray-100 hover:border-transparent transition-all duration-300 group-hover:shadow-2xl h-full flex flex-col cursor-pointer">
+                <div className="relative bg-white group-hover:bg-transparent rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 border-2 border-gray-100 group-hover:border-transparent transition-all duration-300 h-full flex flex-col cursor-pointer">
                   {/* Icon */}
-                  <div className={`w-16 md:w-20 h-16 md:h-20 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 md:mb-6 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-lg`}>
-                    <i className={`fas ${service.icon} text-white text-2xl md:text-3xl`}></i>
+                  <div className={`w-12 sm:w-14 md:w-16 h-12 sm:h-14 md:h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-3 sm:mb-4 md:mb-6 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-lg`}>
+                    <i className={`fas ${service.icon} text-white text-lg sm:text-2xl md:text-3xl`}></i>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-2 group-hover:text-white transition-colors">
+                  <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-2 group-hover:text-white transition-colors duration-300">
                     {service.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm md:text-base text-gray-600 group-hover:text-gray-100 transition-colors mb-4 flex-grow leading-relaxed">
+                  <p className="text-xs sm:text-sm md:text-base text-gray-600 group-hover:text-white transition-colors duration-300 mb-3 sm:mb-4 flex-grow leading-relaxed">
                     {service.fullDescription}
                   </p>
 
                   {/* Features */}
-                  <ul className="space-y-2 mb-4 md:mb-6">
+                  <ul className="space-y-2 mb-3 sm:mb-4 md:mb-6">
                     {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2 text-xs md:text-sm text-gray-700 group-hover:text-gray-100 transition-colors">
+                      <li key={i} className="flex items-center gap-2 text-xs sm:text-sm text-gray-700 group-hover:text-white transition-colors duration-300">
                         <i className="fas fa-check-circle text-green-500 group-hover:text-green-300 flex-shrink-0"></i>
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
 
-                  {/* Learn More */}
-                  <div className="flex items-center gap-2 text-blue-600 font-semibold group-hover:text-white transition-colors text-sm md:text-base">
+                  {/* Learn More - Reveals on Hover */}
+                  <div className="flex items-center gap-2 text-blue-600 font-semibold group-hover:text-white transition-colors duration-300 text-sm md:text-base opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
                     <span>En Savoir Plus</span>
                     <i className="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
                   </div>
